@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
-    <title>Ejercicio 02</title>
 </head>
+
 <body>
+    <section class="seccion">
+        <h2>Escribir un programa que permita ingresar para los N alumnos de una universidad: SEXO (‘M’ o ‘F’), edad y
+            carrera (‘A’,’B’,’C’). Imprimir la carrera con menor promedio de edad de sus alumnos que son varones</h2>
+        <form class="form" id="form" method="post" action="api.php">
+            <div>
+                <label>Número de estudiantes a promediar</label>
+                <input type="number" id="cantidad" class="cantidad" name="cantidad" pattern="[0-9]+" required disabled >
+            </div>
+            <div>
+                <label>Seleccione el genero del estudiante</label>
+                <select name="genero" id="genero" required disabled>
+                    <option value=""></option>
+                    <option value="Femenino" >Femenino</option>
+                    <option value="Masculino">Masculino</option>
+                </select>
+            </div>
+            <div>
+                <label>Ingresa la edad del estudiante</label>
+                <input type="number" id="edad" class="edad" name="edad" pattern="[0-9]+" required disabled>
+            </div>
+            <div>
+                <label>Ingrese la carrera del estudiante</label>
+                <select name="carrera" id="carrera" required disabled>
+                    <option value="" disabled selected></option>
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" class="dia">
+            </div>
+            <div>La carrera con estudiantes de menor edad y varones es: <p id="res"></p>
+            </div>
+        </form>
 
-    <div class="caja">
-        <ul>
-            <h2>Codigos</h2>
-            <li>1. Zapatos</li>
-            <li>2. Camisetas</li>
-            <li>3. Pantalon</li>
-        </ul>
-    </div>
-    
-    <div class="container">
-        <h1>2. De la galería de productos,
-            el usuario introducirá el código y el número de unidades del producto que desea comprar.
-            El programa determinará el total a pagar, como una factura. Ejemplo de factura. </h1>
-            <form id="form" action="api.php" method="post">
-                <input type="number" name="codigo" placeholder="Ingresa el Codigo del Producto" class="input">
-                <input type="number" name="cantidad" placeholder="Ingresa la Cantidad del Producto" class="input">
-                <input type="submit" value="Pagar" class="btn">
-            </form>
-            <pre id="res">
-                * El Total a Pagar es: 
-            </pre>
-    </div>
+    </section>
 </body>
-</html>
 
+</html

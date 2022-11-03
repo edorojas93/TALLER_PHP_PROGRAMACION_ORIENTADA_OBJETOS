@@ -1,35 +1,61 @@
 <?php
-    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Origin: *");
     header('Content-Type: application/json; charset=utf-8');
     $_DATA = json_decode(file_get_contents("php://input"),true);
 
-    class galeria{
-        public $codigo;
-        public $cantidad;
+    class promedio{
+        public $sumaA;
+        public $cantA;
+        public $sumaB;
+        public $cantB;
+        public $sumaC;
+        public $cantC;
 
-        public function __construct(int $codigo, int $cantidad){
-            $this->codigo = $codigo;
-            $this->cantidad = $cantidad;
+        public function __construct(int $sumaA,int $canA,int $sumaB,int $canB, int $sumaC,int $canC){
+            $this->sumaA = $sumaA;
+            $this->canA = $cantA;
+            $this->sumaB = $sumaB;
+            $this->canB = $cantB;
+            $this->sumaC = $sumaC;
+            $this->canC = $cantC;
         }
 
-        public function codigos(){
-            $codigo = match($this->codigo){
-                1 => $codigo = 200,
-                2 => $codigo = 100,
-                3 => $codigo = 80,
-                
-            };
-            return $codigo;
-        }
+        public function promedioF():string{
 
-        public function pagar():string{
-            $codigo = $this->codigos();
-            $pagar = $codigo*$this->cantidad;
-            return $pagar;
+            $sumaA = $this->sumaA;
+            $cantA = $this->canA;
+            $sumaB = $this->sumaB;
+            $cantB = $this->canB;
+            $sumaC = $this->sumaC;
+            $cantC = $this->canC;
+
+            $cantA<1?$promA=0:$promA = $sumaA/$cantA;
+            $cantB<1?$promB=0:$promB = $sumaB/$cantB;
+            $cantC<1?$promC=0:$promC = $sumaC/$cantC;
+
+            if($promA>$promB && $promA>$promC){
+                if($promB>$promC){
+                    return "C";
+                } else{
+                    return "B";
+                }
+            } else if($promB>$promA && $promB>$promC){
+                if($promA>$promC){
+                    return "C";
+                } else{
+                    return "A";
+                }
+            } else if($promC>$promA && $promC>$promB){
+                if($promA>$promB){
+                    return "B";
+                } else{
+                    return "A";
+                }
+            } else{
+                return "A, B, C";
+            }
         }
     }
-
-    $lista = new galeria(codigo:$_DATA['codigo'],cantidad:$_DATA['cantidad']);
-    echo($lista->pagar());
-
+    $lista = new promedio(sumaA:$_DATA[0],cantA:$_DATA[1],sumaB:$_DATA[2],cantB:$_DATA[3],sumaC:$_DATA[4],cantC:$_DATA[5]);
+    echo($lista->promedioF());
 ?>
