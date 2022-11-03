@@ -5,49 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 03</title>
+    <title>Ejercicio 04</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
 </head>
 
 <body>
     <section class="seccion">
-        <h2>Escribir un programa que permita ingresar para los N alumnos de una universidad: SEXO (‘M’ o ‘F’), edad y
-            carrera (‘A’,’B’,’C’). Imprimir la carrera con menor promedio de edad de sus alumnos que son varones</h2>
+        <h2>4. Una persona adquirió un producto para pagar en 20 meses. El primer mes pagó $10, el segundo $20, el
+            tercero $40 y así sucesivamente. Realice un algoritmo para determinar cuánto debe pagar mensualmente y el
+            total de lo que pagó después de los 20 meses. (Investigación código DATE o DATATIME javaScricpt)</h2>
         <form class="form" id="form" method="post" action="api.php">
+            <label class="titulo">Pago en 20 meses</label>
             <div>
-                <label>Número de estudiantes a promediar</label>
-                <input type="number" id="cantidad" class="cantidad" name="cantidad" pattern="[0-9]+" required disabled >
-            </div>
-            <div>
-                <label>Seleccione el genero del estudiante</label>
-                <select name="genero" id="genero" required disabled>
-                    <option value=""></option>
-                    <option value="Femenino" >Femenino</option>
-                    <option value="Masculino">Masculino</option>
-                </select>
-            </div>
-            <div>
-                <label>Ingresa la edad del estudiante</label>
-                <input type="number" id="edad" class="edad" name="edad" pattern="[0-9]+" required disabled>
-            </div>
-            <div>
-                <label>Ingrese la carrera del estudiante</label>
-                <select name="carrera" id="carrera" required disabled>
-                    <option value="" disabled selected></option>
-                    <option value="a">A</option>
-                    <option value="b">B</option>
-                    <option value="c">C</option>
-                </select>
+                <label>Indique la cantidad de meses</label>
+                <input type="date" id="meses" class="meses" name="meses" pattern="[0-9]+" required>
             </div>
             <div>
                 <input type="submit" class="dia">
             </div>
-            <div>La carrera con estudiantes de menor edad y varones es: <p id="res"></p>
+            <div><p id="res"></p>
             </div>
         </form>
 
     </section>
 </body>
 
-</html
+</html>
